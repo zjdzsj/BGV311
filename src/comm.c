@@ -4275,7 +4275,7 @@ static uchar ProcessSelling( uchar *pchar, uchar len, uchar channel )
 	        }	
         }
                         			
-		//�������ݴ��� 11
+		//返回数据 11
 		g_commBuf[channel].Len = 4 + ReturnbackPara ( &pchar[4], errCode, orderLen );				
 		g_relayFlag.Bit.RelayAlarmHappened = 0;		    	
 				
@@ -4362,11 +4362,15 @@ static uchar ProcessSelling( uchar *pchar, uchar len, uchar channel )
 		EEPROM_WP();	
 				        											
 		ProcessRelayStatus ( );
-    	ProcessRelay ( );											
-		g_commBuf[channel].Len = 6;	
-		//���״̬3 11
-    	pchar[4] = (uchar)(g_meterStatus3.Byte&0xff);
-		pchar[5] = (uchar)((g_meterStatus3.Byte>>8)&0xff);							
+    	ProcessRelay ( );	
+
+		//										
+		//g_commBuf[channel].Len = 6;	
+		//状态字3 11
+    	//pchar[4] = (uchar)(g_meterStatus3.Byte&0xff);
+		//pchar[5] = (uchar)((g_meterStatus3.Byte>>8)&0xff);	
+		//修改返回数 2020/09/20 11
+		g_commBuf[channel].Len = 4 + ReturnbackPara ( &pchar[4], 0, 0 );						
 	}
 	
 	else if ( ID == 0x070133ff )		//扩展钱包初始化 11
@@ -4453,10 +4457,13 @@ static uchar ProcessSelling( uchar *pchar, uchar len, uchar channel )
 		   											
 		ProcessRelayStatus ( );
     	ProcessRelay ( );											
-		g_commBuf[channel].Len = 6;	
+		
+		//g_commBuf[channel].Len = 6;	
 		//
-    	pchar[4] = (uchar)(g_meterStatus3.Byte&0xff);
-		pchar[5] = (uchar)((g_meterStatus3.Byte>>8)&0xff);							
+    	//pchar[4] = (uchar)(g_meterStatus3.Byte&0xff);
+		//pchar[5] = (uchar)((g_meterStatus3.Byte>>8)&0xff);
+		//修改返回数 2020/09/20 11
+		g_commBuf[channel].Len = 4 + ReturnbackPara ( &pchar[4], 0, 0 );							
 	}
 	
 	//����ʹ�� 11
