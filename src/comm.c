@@ -1484,7 +1484,8 @@ uchar CheckCommMessage ( uchar channel,  uchar rxdlen )
 					  				     				
 	  				rxdlen = 1;
 	  				
-	  				g_commForOneFrame[channel] = 0;
+					//最长10s复位通讯口 11
+	  				g_commForOneFrame[channel] = 20;
   				
 	  				if ( channel == 0 )
 					{
@@ -1522,175 +1523,6 @@ uchar CheckCommMessage ( uchar channel,  uchar rxdlen )
 			
   	return TRUE;
  			  	
-//    // If MessageReady is set, it means that the message chain is still busy
-//  	// with a previous message.
-//    if( g_commStatus[channel].Bit.MessageReady ) 
-//    	return 0; 
-//    		
-//    //if there's a parity error, reset the number of bytes processed.
-//    if ( g_commStatus[channel].Bit.DataLoss )
-//    {
-//    	if ( channel == 0 )
-//    	{
-//	    	InitIR ( );
-//	    	ResetIRComm ( );
-//	    	return 0;
-//	    }
-//	    else if ( channel == 1 )
-//    	{
-//	    	InitRS485 ( );
-//	    	ResetRS485Comm ( );
-//	    	return 0;
-//	    }
-//    }
-//       	
-//  	//return if there is no character available on the active interface.
-//	//if ( !(g_commStatus[channel].Bit.ByteAvailable & g_commStatus[channel].Bit.Active) )
-//	if ( (g_commStatus[channel].Bit.ByteAvailable==0) )
-//		 return 0;
-//	else
-//	{
-//		g_commStatus[channel].Bit.ByteAvailable = 0;
-//		// Get here if it is in the process of receiving a message.
-//		// Clear the byte available flag from the active interface.
-//	}
-//    	
-//    // MessageBytesProcessed contains the number of bytes *under the
-//  	// protocol* that have been processed. That is, any byte *not* under the
-//  	// protocol causes this machine to abort and force retransmission.
-// 	switch ( s_commPara[channel].MCState++ )
-// 	{
-// 		//looking for the start delimiter byte
-// 	 	case 0:
-// 	 		if ( s_commPara[channel].RxdByte != 0x68 )
-//        		goto error_or_not_for_me;
-//        			     						    		
-//    		g_commForOneFrame[channel] = COMM_ONEFRAME_TIMEOUT;
-//    		//s_commPara[channel].CommStart = 1; 
-//    		  		  			
-//    		s_commPara[channel].MCcs = 0x68;		//checksum
-//    		        		
-//    		// Assume true until proven false
-//    		g_commStatus[channel].Bit.IsBroadcast = 1;
-//    		g_commStatus[channel].Bit.IsSuperAddress = 1;
-//  			g_commStatus[channel].Bit.MessageIsForMe = 1;           // Ditto...
-//  							
-//  			break;
-//      		
-//    	// Case 1 is where it receives the meter address. With each byte, there is
-//		// the possibility that (1) the byte matches my address or wildcard; (2) the 
-//		// byte matches the broadcast address; or (3) the byte matches neither.
-//    	case 1:
-//    	case 2:
-//		case 3:	
-//		case 4:
-//    	case 5:
-//		case 6:	
-//    		if ( s_commPara[channel].RxdByte != 0x99 )
-//    			g_commStatus[channel].Bit.IsBroadcast = 0;
-//    		
-//    		if ( s_commPara[channel].RxdByte != 0xaa )
-//    			g_commStatus[channel].Bit.IsSuperAddress = 0;
-//    				
-//    		if ( (g_addr.MeterAddr[s_commPara[channel].MCState-2] != s_commPara[channel].RxdByte) &&
-//    			( s_commPara[channel].RxdByte != 0xaa ) )
-//    			g_commStatus[channel].Bit.MessageIsForMe = 0;
-//    			  	    			
-//    		s_commPara[channel].MCcs += s_commPara[channel].RxdByte;
-//    		
-//    		break;
-//        	
-//    	//if the input byte is not 68h, or both the "broadcast" and "my address"
-//    	//flags have been cleared,abort the message.
-// 		case 7:// Delimiter
-//				
-//			if ( (g_commStatus[channel].Bit.MessageIsForMe==0) && 
-//					(g_commStatus[channel].Bit.IsBroadcast==0) )
-//				goto error_or_not_for_me;	
-//			
-//			
-//			if( s_commPara[channel].RxdByte != 0x68 )
-//      			         // ...and it's not for me.
-//					goto error_or_not_for_me;
-//			
-//			s_commPara[channel].MCcs += s_commPara[channel].RxdByte;
-//			break;
-//		
-//		// If get here, the address was okay. Perform a rudimentary check of
-//		// the command byte. Specifically, if the high-order bit is set, it's
-//		// not a message from the host and can be ignored except recieved data is 
-//		// 0xaa because this command code is added by our company as initialized code .
-//		case 8: // Command byte
-// 			
-// 			//if ( s_commPara[channel].RxdByte > 0x3f )	 			
-//    		//	goto error_or_not_for_me; // message from another meter
-//  			s_commPara[channel].MCcs += s_commPara[channel].RxdByte;
-//  			g_commBuf[channel].Command = s_commPara[channel].RxdByte;
-//  			break;
-//      			
-//  		// Here check the length. The only check here is a range check:
-//		// can't handle a message longer than MAXHANDLEBYTES bytes.
-//		case 9:// Data Length
-//
-//  			if ( s_commPara[channel].RxdByte > MAXHANDLEBYTES )
-//    			goto error_or_not_for_me; // not enough room in buffer
-//  			s_commPara[channel].MCcs += s_commPara[channel].RxdByte;
-//  			g_commBuf[channel].Len = s_commPara[channel].RxdByte;
-//			break;
-//    			
-//		// Default case is for (1)data, (2)checksum or (3)end marker.	
-//		default:
-//			len = s_commPara[channel].MCState - 11; // subtract 11 bytes of overhead
-//			if ( (len < g_commBuf[channel].Len) && 
-//				(len<MAXHANDLEBYTES-11)  )	// Data
-//			{
-//				s_commPara[channel].MCcs += s_commPara[channel].RxdByte;
-//				s_commPara[channel].RxdByte -= 0x33;
-//				g_commBuf[channel].Data[len] = s_commPara[channel].RxdByte;
-//
-//			}
-//			else if ( len == g_commBuf[channel].Len )// Checksum byte
-//    		{	
-//    			if ( s_commPara[channel].MCcs != s_commPara[channel].RxdByte )              // Is checksum valid?
-//      				goto error_or_not_for_me; 	// No...abort receive.
-//      		}
-//			else if (len == (g_commBuf[channel].Len + 1))// End marker.
-//  			{
-//    			if(s_commPara[channel].RxdByte != 0x16)  	// Is it the End Marker?
-//      				goto error_or_not_for_me;   	// no...abort receive
-//
-//				// If get here, it's a valid message...let the decoder know
-//  				g_commStatus[channel].Bit.MessageReady = 1;
-//  				g_commStatus[channel].Bit.MessageComplete = 1; 						      						    						     						   						
-//								  				     				
-//  				s_commPara[channel].MCState = 0;
-//  				
-//  				g_commForOneFrame[channel] = 0;
-//  				
-//  				if ( channel == 0 )
-//				{
-//					//RXE0 = 0;	//disable IR(Uart0) reciption
-//					SRMK0 = 1U;     // disable INTSR0 interrupt 
-//                    ST0 |= (1<<1);  // disable UART0 receive 
-//						
-//					s_IRState = IR_TXD_STATE;
-//								
-//				}
-//				else if ( channel == 1 )
-//				{
-//					//RXE6 = 0;	//disable RS485(Uart6) reciption
-//					SRMK1 = 1U;     // disable INTSR1 interrupt 	
-//					ST0 |= (1<<3);  // disable UART1 receive 	
-//				} 
-//				 														
-//								
-//  			}
-//				 						
-//			
-//  			break;
-//	}
-//		
-//  	return 1;
 
 	// This branch point is taken when a received byte breaks the protocol.
 	error_or_not_for_me:
@@ -4350,6 +4182,7 @@ static uchar ProcessSelling( uchar *pchar, uchar len, uchar channel )
 	    g_buyPara.BuyCount = 0;
 
 	    g_buyPara.Status = OUT_STATUS;
+		g_meterStatus3.Bit.StatusMeter = 0;	
 	    g_buyPara.Checksum = GetSum ( (uchar*)&g_buyPara.BuyCount, Meter_Buy_PARA_Len-1 );
 		FeedWatchdog ( );
 		StoreToE2ROMAndBackup ( offsetof(EEPROM_DATA,BuyCount),
@@ -4440,6 +4273,7 @@ static uchar ProcessSelling( uchar *pchar, uchar len, uchar channel )
         g_meterFlag.Bit.PowerDown = 0;
         	    
 	    g_buyPara.Status = OUT_STATUS;
+		g_meterStatus3.Bit.StatusMeter = 0;
 	    g_buyPara.Checksum = GetSum ( (uchar*)&g_buyPara.BuyCount, Meter_Buy_PARA_Len-1 );
 		FeedWatchdog ( );
 		StoreToE2ROMAndBackup ( offsetof(EEPROM_DATA,BuyCount),

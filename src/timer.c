@@ -729,6 +729,14 @@ __interrupt void ISRForTimer1( void )
 		if ( g_commForOneFrame[1] == 0)
 			g_meterFlag.Bit.RS485RcvOvertime = 1;
 	}
+#if(IC_CARD_MODE==PLC_COMM_USED)
+	if ( g_commForOneFrame[2] > 0 )//485 11
+	{
+		g_commForOneFrame[2]--;
+		if ( g_commForOneFrame[2] == 0)
+			g_meterFlag.Bit.PLCRcvOvertime = 1;
+	}
+#endif
 
 #if(IC_CARD_MODE==PLC_COMM_USED)	
 	if ( g_PLCInTransCnt > 0 )

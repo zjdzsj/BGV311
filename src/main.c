@@ -2,13 +2,13 @@
 *  Copyright (c) 2010, Bona R&D Department
 *  All rights reserved 
 *
-*  FileName£º   	main.c
-*  Author£º     	Roger
-*  Date£º  			2010-3-8 20:10
-*  Revised Date£º  	
-*  Main Function£º  this file contians the main function
+*  FileNameï¿½ï¿½   	main.c
+*  Authorï¿½ï¿½     	Roger
+*  Dateï¿½ï¿½  			2010-3-8 20:10
+*  Revised Dateï¿½ï¿½  	
+*  Main Functionï¿½ï¿½  this file contians the main function
 *  Version:			BonaV2.0
-*  Note£º 			 			
+*  Noteï¿½ï¿½ 			 			
 *********************************************************************************************/
 #pragma sfr
 #pragma di
@@ -40,7 +40,7 @@ static void InitSystemStep2 ( void );
 static void EndOfHalfSecondTask ( void );	
 /*****************************************************************************************/
 
-unsigned char s_counterFunc=0;      //1 Ãëº¯Êý´¦Àí×´Ì¬×Ö 11
+unsigned char s_counterFunc=0;      //1 ï¿½ëº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ 11
 static unsigned char s_counterFuncHalfSec=0;
 
 static const pFunction RegularTaskTable[] = {
@@ -256,7 +256,7 @@ int main ( void )
 			FeedWatchdog (  );	
 			
 		#ifdef RTC_8025T						    
-		    //µÍ¹¦ºÄ´¦Àí 11
+		    //ï¿½Í¹ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ 11
 		    ProcessLowPower ( );
 		#endif
 		}
@@ -372,11 +372,11 @@ void TopLoopTask ( void )
 	if ( g_relayCnt > 0 )
 	    return;
 	    
-	//´¦ÀíµçÁ¿ÀÛ¼ÓºÍµÝ¼õ 11
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¼ÓºÍµÝ¼ï¿½ 11
 	ManageEnergy ( );
 
 	
-	//Í¨ÐÅ´¦Àí·¢ËÍ 11
+	//Í¨ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
 #if(IC_CARD_MODE==PLC_COMM_USED)
 	for ( i=0; i<3; i++ )
 #else
@@ -385,15 +385,18 @@ void TopLoopTask ( void )
 	{
 		if ( g_meterFlag.Bit.RS485RcvOvertime )
 		{
+			InitRS485();
 			ResetRS485Comm ( );	
 		}
 		if ( g_meterFlag.Bit.IrRcvOvertime )
 		{
+			InitIR();
 			ResetIRComm ( );	
 		}
 	#if(IC_CARD_MODE==PLC_COMM_USED)
 		if ( g_meterFlag.Bit.PLCRcvOvertime )
 		{
+			InitPLCComm ( );
 			ResetPLCComm ( );	
 		}
 	#endif	
@@ -403,7 +406,7 @@ void TopLoopTask ( void )
 		//BuildIRMessage ( i );
 	}
 	
-    //·¢Éú·ÖÖÓÊÂ¼þ 11
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ 11
     if ( g_date.sec == 0 )
     {      
         if ( g_zeroSecCnt==0 )
@@ -413,7 +416,7 @@ void TopLoopTask ( void )
         }	
     }
 	
-	if (¡¡g_cardFlag.Bit.BtnFreshLCD )
+	if (g_cardFlag.Bit.BtnFreshLCD )
 	{
 		g_cardFlag.Bit.BtnFreshLCD = 0;	
 		ManageLCDDisplay ( );
