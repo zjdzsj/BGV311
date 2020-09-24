@@ -492,7 +492,7 @@ void ResetIRComm ( void )
 		s_IRBuf[i++] = 0;
 		
 	g_commStatus[0].Byte = 0;
-	g_commForOneFrame[0] = 0;
+	g_commForOneFrame[0] = COMM_INIT_MAX_TIME;
 	g_meterFlag.Bit.IrRcvOvertime = 0;
 	
 	//added by Roger 2019/08/28
@@ -549,7 +549,7 @@ void ResetRS485Comm ( void )
 		*p++ = 0;
 	
 	g_commStatus[1].Byte = 0;
-	g_commForOneFrame[1] = 0;
+	g_commForOneFrame[1] = COMM_INIT_MAX_TIME;
 	g_meterFlag.Bit.RS485RcvOvertime = 0;
 	
 	g_485CommDly = 0;
@@ -607,7 +607,7 @@ void ResetPLCComm ( void )
 		*p++ = 0;
 	
 	g_commStatus[2].Byte = 0;
-	g_commForOneFrame[2] = 0;
+	g_commForOneFrame[2] = COMM_INIT_MAX_TIME;
 	g_meterFlag.Bit.PLCRcvOvertime = 0;
 	
 	g_PLCCommDly = 0;	
@@ -1547,12 +1547,8 @@ uchar CheckCommMessage ( uchar channel,  uchar rxdlen )
 		}
 	#endif
 		
-		s_commPara[channel].MCState = 0;				 			
-		
-		g_commStatus[channel].Byte = 0;
-		
-		g_commForOneFrame[channel] = 0;
-			
+		s_commPara[channel].MCState = 0;				 					
+		g_commStatus[channel].Byte = 0;					
   		return FALSE;
 }
 

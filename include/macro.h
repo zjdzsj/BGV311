@@ -528,6 +528,8 @@
 #define BEEP_DELAY_2S           4
 #define BEEP_DELAY_5MIN         1200
 
+#define COMM_INIT_MAX_TIME		(10*60*2)		//10minutes
+
 #define KEY_DOWN_COUNTER        3       //about 3s
 
 #define EEPROM_BACKUP_OFFSET    (0x1000)      //4K
