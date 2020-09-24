@@ -1805,6 +1805,8 @@ uchar DecodeIRMessage ( uchar channel )
 		{
 			goto error_process;	 
 		}
+		
+		g_meterStatus3.Bit.BtnKeepRelay = 0;
 	#else //֮ǰЭ�� 11
 		pchar = &g_commBuf[channel].Data[0];
 		
@@ -3680,6 +3682,11 @@ uchar DecodeIRMessage ( uchar channel )
 	if ( channel == 0 )		//����������� 11
 		LCDLED_ON();
 	g_commLCDDisp = 3 ;
+
+	//通讯正常后 解除按键保电 11
+	if ( channel < 2 )
+		g_meterStatus3.Bit.BtnKeepRelay = 0;
+
 	return 1;
 	
 	error_process:

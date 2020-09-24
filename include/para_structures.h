@@ -552,7 +552,7 @@ typedef union METER_STATUS3_tag
 		unsigned char :1;      
 			
 		unsigned char KeepRelay:1;		
-		unsigned char :1;
+		unsigned char BtnKeepRelay:1;
 		unsigned char :1;    
 		unsigned char :1;	
 				  

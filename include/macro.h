@@ -16,7 +16,7 @@
 
 
 #define PCB_VERSION_NEW		(1)		//0--老版本  1--新版本 11
-#define PCB_VERSION_NEW_4	(0)		//0--老版本  1---4新版本  更改串口P0.4 P0.3与0.1 0.2对换11
+#define PCB_VERSION_NEW_4	(1)		//0--老版本  1---4新版本  更改串口P0.4 P0.3与0.1 0.2对换11
 
 //2019年10月18日 修改增加 因为老板子焊接了新的屏 所以增加这个宏来控制 11
 #define PCB_LCD_NEW			(1)		//0--老版本  1---4新版本 11
@@ -27,9 +27,9 @@
 #define RF_CARD				0
 #define AT24_CARD			1
 #define PLC_COMM_USED		2
-#define IC_CARD_MODE		AT24_CARD	//
+//#define IC_CARD_MODE		AT24_CARD	//
 //#define IC_CARD_MODE		RF_CARD		//
-//#define IC_CARD_MODE		PLC_COMM_USED	//NB
+#define IC_CARD_MODE		PLC_COMM_USED	//NB
 
 
 //协议中增加了4字节序列号 宏定义区分 2020/04/07 11
@@ -145,10 +145,10 @@
 
 //电流规格 11
 #if(SINGLE_OR_THREE_METER==3)
-	#define IB_20A_RELAY_OUT
+	//#define IB_20A_RELAY_OUT
 	//#define IB_20A
 	//#define IB_10A
-	//#define IB_5A
+	#define IB_5A
 	//#define IB_1_5A
 	
 	//#define CAL_RN8302_MODE		(33)		//三相三线 11

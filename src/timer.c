@@ -2,13 +2,13 @@
 *  Copyright (c) 2010, Bona R&D Department
 *  All rights reserved 
 *
-*  FileName£º   	timer.c
-*  Author£º     	Roger.
-*  Date£º  			2010-3-8 20:10
-*  Revised Date£º  	
-*  Main Function£º  this file provides the timer functions which have relationship with 
+*  FileNameï¿½ï¿½   	timer.c
+*  Authorï¿½ï¿½     	Roger.
+*  Dateï¿½ï¿½  			2010-3-8 20:10
+*  Revised Dateï¿½ï¿½  	
+*  Main Functionï¿½ï¿½  this file provides the timer functions which have relationship with 
 *  Version:			BonaV2.0
-*  Note£º 			 			
+*  Noteï¿½ï¿½ 			 			
 *********************************************************************************************/
 #pragma sfr
 #pragma di
@@ -67,7 +67,7 @@ static uchar s_key2DownCnt;
 *****************************************************************************************
 * fuction name: InitTimerArray
 *
-* Description : ³õÊ¼»¯¶¨Ê±Æ÷ÕóÁÐ
+* Description : ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *
 * Arguments   : none
 *
@@ -80,7 +80,7 @@ static uchar s_key2DownCnt;
 void InitTimerArray ( void )
 {
 	ST0 |= 0x000F;
-	//½â³ý´®ÐÐÕóÁÐµ¥ÔªµÄ¸´Î»×´Ì¬,²¢¿ªÊ¼Ìá¹©Ê±ÖÓ11
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ôªï¿½Ä¸ï¿½Î»×´Ì¬,ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½á¹©Ê±ï¿½ï¿½11
 	PER0 |= BIT2;	
 	NOP();
     NOP();
@@ -91,53 +91,53 @@ void InitTimerArray ( void )
     NOP();
     NOP();
     	
-	// Ê¹ÓÃ¶¨Ê±Æ÷ÕóÁÐ 11
+	// Ê¹ï¿½Ã¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
     TAU0EN = 1U;    // supplies input clock   11
     
-    // Í£Ö¹¶¨Ê±Æ÷ 0 11
+    // Í£Ö¹ï¿½ï¿½Ê±ï¿½ï¿½ 0 11
     TT0 = (1<<0)+(1<<1)+(1<<4)+(1<<3)+(1<<5);
-    // Ñ¡Ôñ¹«¹²Ê±ÖÓCK0£¬±ØÐëÍ£Ö¹ÏàÓ¦µÄ¶¨Ê±Æ÷²ÅÄÜ¸ü¸Ä 11
+    // Ñ¡ï¿½ñ¹«¹ï¿½Ê±ï¿½ï¿½CK0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£Ö¹ï¿½ï¿½Ó¦ï¿½Ä¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ü¸ï¿½ï¿½ï¿½ 11
     // b13b12: CK03, b9b8: CK02, 11
     // b7-b4: CK01, b3-b0: CK00, 11
     // 0b0000 - fCLK ... ... 0b1111 - fCLK/2^15 11
     //CK01 4M/64=62.5kHz
     TPS0 = (0b00<<12)|(0b00<<8)|(0b0110<<4)|(0b0000);  
 	
-	//¶¨Ê±Æ÷0 4ms 11
+	//ï¿½ï¿½Ê±ï¿½ï¿½0 4ms 11
 	////////////////////////////////////////////////////////////
 	{	    
-    // Í£Ö¹¶¨Ê±Æ÷ÖÐ¶Ï 11
+    // Í£Ö¹ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ð¶ï¿½ 11
     TMMK00 = 1U;    // disable INTTM00 interrupt
     TMIF00 = 0U;    // clear INTTM00 interrupt flag
 
-    // Éè¶¨ÖÐ¶ÏÓÅÏÈ¼¶£ºµÍ 11
+    // ï¿½è¶¨ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½ 11
     TMPR100 = 1U;
     TMPR000 = 1U;
     
-    // ÅäÖÃ¶¨Ê±Æ÷  11
-    // Ñ¡ÔñCK00-CK03, ¼ä¸ô¶¨Ê±Æ÷ 11
+    // ï¿½ï¿½ï¿½Ã¶ï¿½Ê±ï¿½ï¿½  11
+    // Ñ¡ï¿½ï¿½CK00-CK03, ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ 11
     TMR00 = (0b00<<14)|(0b0000<<0); 
 
-    // ÉèÖÃ¼ÆÊýÆ÷£¬µÝ¼õ£¬TDR00 = fTCLK*T - 1 = 4M*1ms-1 11
+    // ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¼ï¿½ï¿½ï¿½TDR00 = fTCLK*T - 1 = 4M*1ms-1 11
     TDR00 = 15999; // 4ms@4M
 
-    // ¼ä¸ô¶¨Ê±ÖÐ²»Êä³ö 11
-    TOM0 &= ~(1<<0);    // Êä³öÄ£Ê½ 11
-    TOL0 &= ~(1<<0);    // ²»·´ÏàÊä³ö 11
-    TO0 &= ~(1<<0);     // Í£Ö¹ÔËÐÐÊ±Êä³öµÄµçÆ½ 11
-    TOE0 &= ~(1<<0);    // ½ûÖ¹¶¨Ê±Æ÷Êä³ö 11
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ 11
+    TOM0 &= ~(1<<0);    // ï¿½ï¿½ï¿½Ä£Ê½ 11
+    TOL0 &= ~(1<<0);    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
+    TO0 &= ~(1<<0);     // Í£Ö¹ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Äµï¿½Æ½ 11
+    TOE0 &= ~(1<<0);    // ï¿½ï¿½Ö¹ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ 11
     
     TMIF00 = 0U;    // clear INTTM00 interrupt flag 
     TMMK00 = 0U;    // enable INTTM00 interrupt 
-    TS0 |= (1<<0);      //Æô¶¯¶¨Ê±Æ÷0 11
+    TS0 |= (1<<0);      //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½0 11
     
     }
 	///////////////////////////////////////////////////////////////////////
 	
-	//¶¨Ê±Æ÷1 0.5s 11
+	//ï¿½ï¿½Ê±ï¿½ï¿½1 0.5s 11
 	////////////////////////////////////////////////////////////
 	{
-	    // channels 7  ¶¨Ê±Æ÷ 11
+	    // channels 7  ï¿½ï¿½Ê±ï¿½ï¿½ 11
         
         // Mask channel 1 interrupt
         TMMK01 = 1U;    // disable INTTM07 interrupt
@@ -147,7 +147,7 @@ void InitTimerArray ( void )
         TMPR101 = 1U;
         TMPR001 = 1U;
     
-        // Channel 1 used as interval timer Ñ¡ÔñCK01 1M; 11
+        // Channel 1 used as interval timer Ñ¡ï¿½ï¿½CK01 1M; 11
         TMR01 =  (0b10<<14);
         
         TDR01 = 31250; // 500ms@1M
@@ -159,7 +159,7 @@ void InitTimerArray ( void )
 	    
 	    TMIF01 = 0U;    // clear INTTM07 interrupt flag 
         TMMK01 = 0U;    // enable INTTM07 interrupt 
-        TS0 |= (1<<1);      //Æô¶¯¶¨Ê±Æ÷7 11
+        TS0 |= (1<<1);      //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½7 11
     
 	    s_halfSec = 0;
 	    s_twoSec = 0;
@@ -171,10 +171,10 @@ void InitTimerArray ( void )
     }
 	////////////////////////////////////////////////////////////
 	
-	//¶¨Ê±Æ÷3 1200bpsºìÍâÖÜÆÚ 833.33us ½ÓÊÕºìÍâÊý¾Ý Ä£Äâ´®¿Ú 11 
+	//ï¿½ï¿½Ê±ï¿½ï¿½3 1200bpsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 833.33us ï¿½ï¿½ï¿½Õºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½â´®ï¿½ï¿½ 11 
 	////////////////////////////////////////////////////////////
 	{
-	    // channels 3  ¶¨Ê±Æ÷ 11
+	    // channels 3  ï¿½ï¿½Ê±ï¿½ï¿½ 11
         
         // Mask channel 3 interrupt
         TMMK03 = 1U;    // disable INTTM03 interrupt
@@ -184,7 +184,7 @@ void InitTimerArray ( void )
         TMPR103 = 0U;
         TMPR003 = 0U;
     
-        // Channel 1 used as interval timer Ñ¡ÔñCK01 4M; 11
+        // Channel 1 used as interval timer Ñ¡ï¿½ï¿½CK01 4M; 11
         TMR03 =  (0b00<<14);
         
         TDR03 = 3333; // 833.33us@4M 11
@@ -196,11 +196,11 @@ void InitTimerArray ( void )
 	    
 	    TMIF03 = 0U;    // clear INTTM03 interrupt flag 
         TMMK03 = 1U;    // disable INTTM03 interrupt 
-        TT0 |= (1<<3);      //ÏÈ¹Ø±Õ¶¨Ê±Æ÷3 11     
+        TT0 |= (1<<3);      //ï¿½È¹Ø±Õ¶ï¿½Ê±ï¿½ï¿½3 11     
     }
 	////////////////////////////////////////////////////////////
 	
-	//¶¨Ê±Æ÷4 38kÊä³ö 11
+	//ï¿½ï¿½Ê±ï¿½ï¿½4 38kï¿½ï¿½ï¿½ 11
 	////////////////////////////////////////////////////////////
 	{
         
@@ -217,13 +217,13 @@ void InitTimerArray ( void )
         //38k 13.15us 11
         TDR04 = 52; // @4M 11
         
-        //¼ä¸ô¶¨Ê±ÖÐ²»Êä³ö 11
-        TO0 &= ~(1<<4);     //Í£Ö¹ÔËÐÐÊ±Êä³öµÍµçÆ½ 11 11
-        //TOE0 |= (1<<4);¡¡   //ÔÊÐí¶¨Ê±Æ÷Êä³ö 1111
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ 11
+        TO0 &= ~(1<<4);     //Í£Ö¹ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Íµï¿½Æ½ 11 11
+        //TOE0 |= (1<<4);ï¿½ï¿½   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ 1111
     }
 	/////////////////////////////////////////////////////////////
 		
-	//¶¨Ê±Æ÷5 1200bpsºìÍâÖÜÆÚ 833.33us Êä³ö 11 11
+	//ï¿½ï¿½Ê±ï¿½ï¿½5 1200bpsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 833.33us ï¿½ï¿½ï¿½ 11 11
 	/////////////////////////////////////////////////////////////
 	{               
         
@@ -234,7 +234,7 @@ void InitTimerArray ( void )
         TMPR105 = 1U;
         TMPR005 = 1U;
     
-        // Channel 7 used as interval timer Ñ¡ÔñCK00 4M; 11
+        // Channel 7 used as interval timer Ñ¡ï¿½ï¿½CK00 4M; 11
         TMR05 =  (0b00<<14);
         
         TDR05 = 3333; // 833.33us@4M 11
@@ -351,7 +351,7 @@ __interrupt static void ISRForTimer0( void )
 	DI ( );
 	
 #if(METER_CHIP_MODEL==0x2208)	
-	//Âö³åµÆ80msÊ±¼ä¿ØÖÆ 11
+	//ï¿½ï¿½ï¿½ï¿½ï¿½80msÊ±ï¿½ï¿½ï¿½ï¿½ï¿½ 11
 	if ( g_pulseLedDly > 0 )
 	{
 		g_pulseLedDly--;		
@@ -360,12 +360,12 @@ __interrupt static void ISRForTimer0( void )
 		PULSE_OFF();
 #endif
 				
-	//Í¨ÐÅÑÓÊ± 11
-	if ( g_commFor20msDly[0] > 0 )		//ºìÍâ 11
+	//Í¨ï¿½ï¿½ï¿½ï¿½Ê± 11
+	if ( g_commFor20msDly[0] > 0 )		//IR 11
 		g_commFor20msDly[0]--;
 	if ( g_commFor20msDly[1] > 0 )		//RS485
 		g_commFor20msDly[1]--;
-	if ( g_commFor20msDly[2] > 0 )		//RS485
+	if ( g_commFor20msDly[2] > 0 )		//PLC
 		g_commFor20msDly[2]--;
 		
 	if ( g_485CommDly > 0 )
@@ -400,12 +400,12 @@ __interrupt static void ISRForTimer0( void )
 	//card in 
 	
 #if(METER_CHIP_MODEL==0x2208)
-	//RN8209C ´®¿Ú½ÓÊÕÊý¾ÝÑÓÊ± 11
+	//RN8209C ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê± 11
 	if ( g_Uart2Dly > 0 )
 		g_Uart2Dly--;
 #endif
 	
-	//¼ÌµçÆ÷´¦ÀíÑÓÊ± 11
+	//ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê± 11
 	if( g_relayCnt > 0 )
 	{
 		g_relayCnt--;
@@ -419,7 +419,7 @@ __interrupt static void ISRForTimer0( void )
 
 #ifdef PRE_PAID_ENABLE
     #if(IC_CARD_MODE==AT24_CARD)
-	    //IC¿¨ÅÐ¶Ï 11
+	    //ICï¿½ï¿½ï¿½Ð¶ï¿½ 11
 	    //card in 
 	    if ( (IC_CHK) && 
 	        (g_cardFlag.Bit.ICCardOutUse==0) )       //out
@@ -487,8 +487,8 @@ __interrupt static void ISRForTimer0( void )
 #endif
 
 #if(PCB_VERSION_NEW==0)	
-	//°´¼ü1 °´ÏÂ µ¥ ÈýÏà±í¶¼ÊÇÏÂ·­ up 11
-	if ( KEY1 == 0 )		//°´ÏÂ 11
+	//ï¿½ï¿½ï¿½ï¿½1 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ up 11
+	if ( KEY1 == 0 )		//ï¿½ï¿½ï¿½ï¿½ 11
 	{
 		if ( s_key1DownCnt < 10 )		//40ms
 		{
@@ -507,9 +507,9 @@ __interrupt static void ISRForTimer0( void )
 	{
 		s_key1DownCnt = 0;	
 	}
-#else		//ÐÂPCB°æ±¾ µ÷Õû°´¼üºÍÎÞ¹¦²É¼¯ 11
+#else		//ï¿½ï¿½PCBï¿½æ±¾ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¹ï¿½ï¿½É¼ï¿½ 11
 	#ifdef INACITVE_POWER_ENABLE
-		if ( Q_PULSE == 0 )	//rising edge£¬Âö³å¼ÆÊý¿ªÊ¼,111
+		if ( Q_PULSE == 0 )	//rising edgeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼,111
 		{
 			if ( s_QDownCnt < 10 )
 			{
@@ -529,8 +529,8 @@ __interrupt static void ISRForTimer0( void )
 #endif
 	
 #if(SINGLE_OR_THREE_METER==3)    
-    //°´¼ü2 °´ÏÂ ÈýÏà±í¶¼ÊÇÉÏ·­ 11
-	if ( KEY2 == 0 )		//°´ÏÂ 11
+    //ï¿½ï¿½ï¿½ï¿½2 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ 11
+	if ( KEY2 == 0 )		//ï¿½ï¿½ï¿½ï¿½ 11
 	{
 		if ( s_key2DownCnt < 10 )		//40ms
 		{
@@ -553,7 +553,7 @@ __interrupt static void ISRForTimer0( void )
 	}  
 #endif
    
-    //0ÃëÊÂ¼þ¼ÆÊýÆ÷ 11
+    //0ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
     if ( g_zeroSecCnt > 0 )
         g_zeroSecCnt--;
 
@@ -634,7 +634,7 @@ void Delay1MsTime ( uint16 n )
 void delay_4us ( void )
 {
 	uchar j;
-	for ( j=0; j<50; j++ )		//Ô­À´ÊÇ30us 11
+	for ( j=0; j<50; j++ )		//Ô­ï¿½ï¿½ï¿½ï¿½30us 11
 		NOP ( );
 	return;
 }
@@ -655,9 +655,9 @@ void delay_4us ( void )
 void delay_time ( void )
 {
 	uchar j;
-	for ( j=0; j<80; j++ )		//Êµ¼Ê²âÊÔÄ¿Ç°Ê±¼äÎª80->100us 11
-	//for ( j=0; j<250; j++ )		//Êµ¼Ê²âÊÔÄ¿Ç°Ê±¼äÎª80->100us 11
-	//for ( j=0; j<100; j++ )		//Êµ¼Ê²âÊÔÄ¿Ç°Ê±¼äÎª80->100us 11
+	for ( j=0; j<80; j++ )		//Êµï¿½Ê²ï¿½ï¿½ï¿½Ä¿Ç°Ê±ï¿½ï¿½Îª80->100us 11
+	//for ( j=0; j<250; j++ )		//Êµï¿½Ê²ï¿½ï¿½ï¿½Ä¿Ç°Ê±ï¿½ï¿½Îª80->100us 11
+	//for ( j=0; j<100; j++ )		//Êµï¿½Ê²ï¿½ï¿½ï¿½Ä¿Ç°Ê±ï¿½ï¿½Îª80->100us 11
 		NOP ( );
 	return;
 }
@@ -691,18 +691,20 @@ __interrupt void ISRForTimer1( void )
 	//}
 	//s_quaterSec = 0;
 
-	//NB±í°´¼üÖ÷¶¯ÉÏ´« 11
+	//NBï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ 11
 #if(IC_CARD_MODE==PLC_COMM_USED)
 	if ( KEY1 == 0 )
 	{
 		s_key1NBBtnCnt++;
-		if ( s_key1NBBtnCnt == 6  )		//3Ãë 11
+		if ( s_key1NBBtnCnt == 6  )		//3s 11
 		{
 			s_PLCEventCnt = 500;		//500*4	
 		}
-		else if ( s_key1NBBtnCnt == 12 )		//Ãë 11
+		else if ( s_key1NBBtnCnt == 12 )		//å‘é€NBæ¨¡å—å¤ä½ä¿¡å· 11
 		{
 			g_PLCRstCnt = 500;	
+			//			
+			g_meterStatus3.Bit.BtnKeepRelay = 1;
 		}
 	}
 	else
@@ -714,8 +716,8 @@ __interrupt void ISRForTimer1( void )
 #endif
 		
 
-	//Í¨ÐÅ¿ÚÖ¡×î´ó½ÓÊÕÑÓÊ±´¦Àí 11
-	if ( g_commForOneFrame[0] > 0 )//ºìÍâ 11
+	//Í¨ï¿½Å¿ï¿½Ö¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ 11
+	if ( g_commForOneFrame[0] > 0 )//ï¿½ï¿½ï¿½ï¿½ 11
 	{
 		g_commForOneFrame[0]--;
 		if ( g_commForOneFrame[0] == 0)
@@ -736,25 +738,25 @@ __interrupt void ISRForTimer1( void )
 	g_meterFlag.Bit.HalfSec = 1;
 	    
 	s_halfSec++;			
-	//Ãë´¦Àí	 11
+	//ï¿½ë´¦ï¿½ï¿½	 11
 	if ( s_halfSec >= 2 )
 	{
         s_halfSec = 0;
         
-        //Òº¾§ÏÔÊ¾ Ê±¼ä ÉÁË¸ 11
+        //Òºï¿½ï¿½ï¿½ï¿½Ê¾ Ê±ï¿½ï¿½ ï¿½ï¿½Ë¸ 11
         g_lcdFlag.Bit.TimerBlink = ~g_lcdFlag.Bit.TimerBlink;
         
         
         g_meterFlag.Bit.OneSec = 1;
     	
-    	//24Ð¡Ê±¶¨Ê±Æ÷ 11
+    	//24Ð¡Ê±ï¿½ï¿½Ê±ï¿½ï¿½ 11
 	#if (FREEZE_DAY_EANBLED==1)
 		g_daySeconds++;			
 	#endif	
     	        
-        //ÊµÊ±Ê±ÖÓ´¦Àí 11
+        //ÊµÊ±Ê±ï¿½Ó´ï¿½ï¿½ï¿½ 11
 	#ifdef SOFT_RTC
-		//Ê± ·Ö Ãë ¼ÆËã 11
+		//Ê± ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 11
 		//g_date.sec++;
 		_BCDAccOne ( &g_date.sec );
 		if( g_date.sec >= 0x60 )	
@@ -845,7 +847,7 @@ __interrupt void ISRForTimer1( void )
 			//ADCE = 1;                 
         } 
         
-        //Í¨Ñ¶ÏÔÊ¾·û 11
+        //Í¨Ñ¶ï¿½ï¿½Ê¾ï¿½ï¿½ 11
         if ( g_commLCDDisp > 0 )
         	g_commLCDDisp--;
         
@@ -863,7 +865,7 @@ __interrupt void ISRForTimer1( void )
         if ( g_errLCDDispCnt > 0 )
         	g_errLCDDispCnt--;
         
-        //·¢ÉúEEPROM¶ÁÈ¡´íÎó 1·ÖÖÓºó¸´Î»ÖØÆô 11
+        //ï¿½ï¿½ï¿½ï¿½EEPROMï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½Óºï¿½Î»ï¿½ï¿½ï¿½ï¿½ 11
         if ( g_errStatus.Bit.E2ROM == 1 )
         {
         	g_eepromErrCnt++;
@@ -871,7 +873,7 @@ __interrupt void ISRForTimer1( void )
         		ResetMeter();
         }
     
-    //ÐèÁ¿Ê¹ÄÜ 11
+    //ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ 11
 	#ifdef DEMAND_ENABLE
 		if ( g_demandSlideCnt > 0 )
 			g_demandSlideCnt--;
@@ -886,7 +888,7 @@ __interrupt void ISRForTimer1( void )
 		
     }
     
-    //ÖÃÎ»2Ãë±êÖ¾Î» 11
+    //ï¿½ï¿½Î»2ï¿½ï¿½ï¿½Ö¾Î» 11
     s_twoSec++;
     if ( s_twoSec >= 5*2 )		//5s
     {
@@ -895,7 +897,7 @@ __interrupt void ISRForTimer1( void )
     	g_meterFlag.Bit.Cl2208check = 1;	
     }
     
-    //3ÃëÏÔÊ¾´¦Àí 11
+    //3ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ 11
     g_LCDSec++;
     if ( g_LCDSec >= g_lcdCycleCnt*2 )
     {
@@ -915,7 +917,7 @@ __interrupt void ISRForTimer1( void )
     //button delay time
     
     
-    //·äÃùÆ÷ÑÓÊ±´¦Àí 11
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ 11
 	if ( g_BeepDelay > 0 )
 	{
 	    g_BeepDelay--;
@@ -939,7 +941,7 @@ __interrupt void ISRForTimer1( void )
 	    }   	    
 	}
         
-	//¼ÌµçÆ÷´¦ÀíÑÓÊ± 11
+	//ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê± 11
 	//if( g_relayCnt > 0 )
     //{
     //    g_relayCnt--;
@@ -954,12 +956,12 @@ __interrupt void ISRForTimer1( void )
     if ( g_relayProCnt > 0 )
     	g_relayProCnt--;
 
-	//¼ÌµçÆ÷ÑÓÊ±´¦Àí 11
+	//ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ 11
 	if ( g_relayChkDly > 0 )
 	    g_relayChkDly--;
    
 #if (IC_CARD_MODE==RF_CARD)  
-   	//ÉäÆµ¿¨´ò¿ªÖÜÆÚ 11
+   	//ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
 	s_rfCycleCnt++;
 	if ( s_rfCycleCnt >= 1 )
 	{

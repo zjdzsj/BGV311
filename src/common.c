@@ -2,13 +2,13 @@
 *  Copyright (c) 2010, Bona R&D Department
 *  All rights reserved 
 *
-*  FileName?ï¿??o   	common.c
-*  Author?ï¿??o     	Roger
-*  Date?ï¿??o  			2010-3-8 20:11
-*  Revised Date?ï¿??o  	
-*  Main Function?ï¿??o  this file contains all the functions may be used in all project files
+*  FileName?ï¿½??o   	common.c
+*  Author?ï¿½??o     	Roger
+*  Date?ï¿½??o  			2010-3-8 20:11
+*  Revised Date?ï¿½??o  	
+*  Main Function?ï¿½??o  this file contains all the functions may be used in all project files
 *  Version:			BonaV2.0
-*  Note?ï¿??o 			 			
+*  Note?ï¿½??o 			 			
 *********************************************************************************************/
 #pragma sfr
 #pragma di
@@ -24,7 +24,7 @@
 #define _COMMON_DEFINE_
 #include "include.h"
 /************************************************************************************************/
-//Ôö¼ÓÖĞÎÄ¶î²âÊÔ 11
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ 11
 //only used in SPI.c file
 /************************************************************************************************/
 /*
@@ -65,15 +65,15 @@ static uint16 const CRC16_TABLE[256]={
 */
 //variables definition
 
-//¶ÏÏàÊÂ¼ş¼ÇÂ¼´¦Àí 11
+//ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ 11
 #if(LOSS_PHASE_EANBLED==1)    
-	static uint32 s_lossPhaseCnt[3];		//¶ÏÏàÅĞ¶ÏÊ±¼ä 11
+	static uint32 s_lossPhaseCnt[3];		//ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½Ê±ï¿½ï¿½ 11
 
 #endif
 
-//¹ıÔØÊÂ¼ş¼ÇÂ¼ 11
+//ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Â¼ 11
 #if(OVER_POWER_EANBLED==1)	
-	static uint32 s_overPowerCnt;		//¹ıÔØÊÂ¼şÊ±¼ä 11
+	static uint32 s_overPowerCnt;		//ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½Ê±ï¿½ï¿½ 11
 #endif
 
 
@@ -106,21 +106,21 @@ static void InitLCD ( void );
 */
 void InitHardware ( void )
 {   
-	//?â€??â€??????????â€??|???Â·?3?Î¼???????Ë‰???a?????????â€??Î¼ 11
-    PIOR = 0x10U;   // ¹Ü½Å¹¦ÄÜÖØĞÂ¶¨Ïò 11
-    CRC0CTL = 0x00U;// ÉÁ´æCRC ¿ØÖÆ¼Ä´æÆ÷ 11
-    RPECTL = 0x00U; // RAM ÆæÅ¼Ğ£Ñé´íÎó¿ØÖÆ¼Ä´æÆ÷ 11
-    IAWCTL = 0x00U; // ·Ç·¨´æ´¢Æ÷´æÈ¡¼ì²â¿ØÖÆ¼Ä´æ 11
-    PMS = 0x00U;    // ¶Ë¿ÚÄ£Ê½Ñ¡Ôñ¼Ä´æÆ÷ 11
+	//?ï¿½??ï¿½??????????ï¿½??|???Â·?3?Î¼???????Ë‰???a?????????ï¿½??Î¼ 11
+    PIOR = 0x10U;   // ï¿½Ü½Å¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¶ï¿½ï¿½ï¿½ 11
+    CRC0CTL = 0x00U;// ï¿½ï¿½ï¿½ï¿½CRC ï¿½ï¿½ï¿½Æ¼Ä´ï¿½ï¿½ï¿½ 11
+    RPECTL = 0x00U; // RAM ï¿½ï¿½Å¼Ğ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼Ä´ï¿½ï¿½ï¿½ 11
+    IAWCTL = 0x00U; // ï¿½Ç·ï¿½ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼Ä´ï¿½ 11
+    PMS = 0x00U;    // ï¿½Ë¿ï¿½Ä£Ê½Ñ¡ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ 11
     
 	
-	//CPU???Â±?â€??â€??â€????â€??Â±?â€??Â¨?â€??? 11
+	//CPU???Â±?ï¿½??ï¿½??ï¿½????ï¿½??Â±?ï¿½??Â¨?ï¿½??? 11
 	InitMemAndClock (  );
 	
-	//?Î¼?â€??Î¼?Â§?â€??|?â‚??---?????2???Î¼?Â§?â€??â€????2???ï¿??2???????2?ï¿? 11
+	//?Î¼?ï¿½??Î¼?Â§?ï¿½??|?ï¿½??---?????2???Î¼?Â§?ï¿½??ï¿½????2???ï¿½??2???????2?ï¿½? 11
 	InitEXLVI ( );
 	
-	//?1?????â€??â€??Â¤?â€??? 11
+	//?1?????ï¿½??ï¿½??Â¤?ï¿½??? 11
 	InitPins ( );	
 	
 	InitLCD();
@@ -143,32 +143,32 @@ void InitHardware ( void )
 */
 static void InitMemAndClock ( void )
 {	
-	// ?â€????Î¼?Â§?o?3???Î¼???3???1?â€????????????????2?????Â±?Î¼?â€????Â·???Â±?â€??â€??â€??????? 11
-    // ???Â±?â€??â€??3?Î¼?????â€??Â¨?â€??????1?â€????â€????????â€??â€??????â€??Â¨?â€????ï¿????2??????option.asm 11
+	// ?ï¿½????Î¼?Â§?o?3???Î¼???3???1?ï¿½????????????????2?????Â±?Î¼?ï¿½????Â·???Â±?ï¿½??ï¿½??ï¿½??????? 11
+    // ???Â±?ï¿½??ï¿½??3?Î¼?????ï¿½??Â¨?ï¿½??????1?ï¿½????ï¿½????????ï¿½??ï¿½??????ï¿½??Â¨?ï¿½????ï¿½????2??????option.asm 11
 
-    // ???â€??â€??â€????-???â€??â€??o?????????????????????Î¼???â€??Â¨?â€??? 11
+    // ???ï¿½??ï¿½??ï¿½????-???ï¿½??ï¿½??o?????????????????????Î¼???ï¿½??Â¨?ï¿½??? 11
 
-    // ?â€??????1?â€????????2?????????????Â±?Î¼?â€????Â·???Â±?â€??â€? 11 
+    // ?ï¿½??????1?ï¿½????????2?????????????Â±?Î¼?ï¿½????Â·???Â±?ï¿½??ï¿½? 11 
    
     // Set fMX 
-    // ???Â±?â€??â€??â€??????????ï¿????? 11
-    // CMC???â€??????o?3?â€??????????â€??â€????â€??? 11
-    CMC = 0;        // ?2?????1?â€???X1?o??XT1???Â±?â€??â€? 11
+    // ???Â±?ï¿½??ï¿½??ï¿½??????????ï¿½????? 11
+    // CMC???ï¿½??????o?3?ï¿½??????????ï¿½??ï¿½????ï¿½??? 11
+    CMC = 0;        // ?2?????1?ï¿½???X1?o??XT1???Â±?ï¿½??ï¿½? 11
 
-    MSTOP = 1U;     // ???ï¿??â€??1X1 11
+    MSTOP = 1U;     // ???ï¿½??ï¿½??1X1 11
 
     // Set fMAIN 
-    MCM0 = 0U;      // ?â€????â€??Â±?????????????2?????Â±?Î¼?â€????Â·???Â±?â€??â€? 11
+    MCM0 = 0U;      // ?ï¿½????ï¿½??Â±?????????????2?????Â±?Î¼?ï¿½????Â·???Â±?ï¿½??ï¿½? 11
 
     // Set fSUB
-    XTSTOP = 1U;    // ???ï¿??â€??1XT1 11
-    OSMC = (1<<4);  // RTC,IT,LCD?â€????â€??Â±?????2???Î¼?????????Â±?â€??â€? 15khZ 11
+    XTSTOP = 1U;    // ???ï¿½??ï¿½??1XT1 11
+    OSMC = (1<<4);  // RTC,IT,LCD?ï¿½????ï¿½??Â±?????2???Î¼?????????Â±?ï¿½??ï¿½? 15khZ 11
 
     // Set fCLK 4MHz
-    CSS = 0U;       // CPU???Â±?â€??â€??â€????â€??Â±?â€??Â·???Î¼???3???Â±?â€??â€? 11
+    CSS = 0U;       // CPU???Â±?ï¿½??ï¿½??ï¿½????ï¿½??Â±?ï¿½??Â·???Î¼???3???Â±?ï¿½??ï¿½? 11
     
     // Set fIH 
-    HIOSTOP = 0U;   // ?????????????2?????Â±?Î¼?â€????Â·?â€??????? 11
+    HIOSTOP = 0U;   // ?????????????2?????Â±?Î¼?ï¿½????Â·?ï¿½??????? 11
 								 				
 	return;	
 }
@@ -189,10 +189,10 @@ static void InitMemAndClock ( void )
 */
 static void InitEXLVI ( void )
 {
-	//LVD?3?Î¼???????Ë‰?ï¿????â€???????LVIF?Â±?a???????â€????â€??ï¿???11 
-	LVIM &= 0x7f;		//?????Â±???â€???????11
+	//LVD?3?Î¼???????Ë‰?ï¿½????ï¿½???????LVIF?Â±?a???????ï¿½????ï¿½??ï¿½???11 
+	LVIM &= 0x7f;		//?????Â±???ï¿½???????11
 	LVIS = 0x01;
-	LVIMK = 0;		//???1?????â€??????? 11
+	LVIMK = 0;		//???1?????ï¿½??????? 11
 	    
 	return;
 }
@@ -230,25 +230,25 @@ static void InitPins ( void )
 	
 	//i/o pin set
 	
-	//È«²¿Ê¹ÓÃÊı×Ö½Ó¿Ú 11
+	//È«ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½Ö½Ó¿ï¿½ 11
 	PMC1 = 0xF0;
-	PMC2 = 0x3f;	//P2.2 Ä£Äâ¿Ú 11
+	PMC2 = 0x3f;	//P2.2 Ä£ï¿½ï¿½ï¿½ 11
 	PMC4 = 0x00;
 
 	
-	//P2.0 P2.1 ad¿ÚÑ¡Ôñ Êı×Ö¿Ú 11
+	//P2.0 P2.1 adï¿½ï¿½Ñ¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¿ï¿½ 11
 	ADPC = 0x01;
 	
-	//LCD¹Ü½Å P12.5 P12.6×öÎªLCDÒı½Å 11
+	//LCDï¿½Ü½ï¿½ P12.5 P12.6ï¿½ï¿½ÎªLCDï¿½ï¿½ï¿½ï¿½ 11
 	ISCLCD = 0x00;	
 	
-	//PIM ¶Ë¿ÚÊäÈëÄ£Ê½¼Ä´æÆ÷ 11
+	//PIM ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½Ä´ï¿½ï¿½ï¿½ 11
 	PIM0 = 0x48;
 	PIM1 = 0x80;
 	PIM4 = 0x00;
 	PIM5 = 0x00;
 	
-	//POM ¶Ë¿ÚÊä³öÄ£Ê½¼Ä´æÆ÷ 11
+	//POM ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½Ä´ï¿½ï¿½ï¿½ 11
 	POM0 = 0x40;        //485RXD P0.6
 	POM1 = 0x00;        //
 	POM4 = 0x00;
@@ -570,7 +570,7 @@ void ProcessSecTaskFlags ( void )
 	uchar lastCnt;
 #endif
 
-    //¼ÆÁ¿Ğ¾Æ¬Ğ£Ñé 11
+    //ï¿½ï¿½ï¿½ï¿½Ğ¾Æ¬Ğ£ï¿½ï¿½ 11
     //if ( g_buyPara.Status != MANUFACTURE_STATUS )
     {
         if ( g_2208ErrCnt >= 5 )
@@ -607,7 +607,7 @@ void ProcessSecTaskFlags ( void )
         }	
     }
 	
-	//¼ÌµçÆ÷×´Ì¬±£´æ 11
+	//ï¿½Ìµï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½ 11
 	if ( (g_relayCnt==0) && 
 			(g_relayFlag.Bit.StatusToSave==1) )
 	{
@@ -620,7 +620,7 @@ void ProcessSecTaskFlags ( void )
 		
 	}
 	
-	//¼ÌµçÆ÷´¦Àí¿¨,5·ÖÖÓºó·´Ïò´¦Àí 11
+	//ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,5ï¿½ï¿½ï¿½Óºï¿½ï¿½ï¿½ï¿½ï¿½ 11
     if ( g_5minutesCnt > 0 )
     {
         g_5minutesCnt--;   
@@ -635,7 +635,7 @@ void ProcessSecTaskFlags ( void )
             }  
             
             
-            //±¨¾¯ÌøÕ¢ºó5·ÖÖÓºÏÕ¢¹¦ÄÜ 11
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¢ï¿½ï¿½5ï¿½ï¿½ï¿½Óºï¿½Õ¢ï¿½ï¿½ï¿½ï¿½ 11
             if ( g_relayFlag.Bit.RelayAlarmOn )
             {
                 g_relayFlag.Bit.RelayAlarmOn = 0; 
@@ -650,9 +650,9 @@ void ProcessSecTaskFlags ( void )
 //            #endif            
             } 
             
-            //¸ºÔØÌøÕ¢Ê¹ÄÜ 11
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¢Ê¹ï¿½ï¿½ 11
 		#if(OVER_POWER_RELAY_OFF_EANBLED==1)   	
-		   	//Èç¹ûÖ®Ç°ÊÇ¹ıÔØ±£»¤¶Ï¿ª¼ÌµçÆ÷£¬5·ÖÖÓºó¿É±ÕºÏ¼ÌµçÆ÷ 11
+		   	//ï¿½ï¿½ï¿½Ö®Ç°ï¿½Ç¹ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½5ï¿½ï¿½ï¿½Óºï¿½É±ÕºÏ¼Ìµï¿½ï¿½ï¿½ 11
 		   	if ( g_errStatus.Bit.OverPower )
 		   	{
 		   	    g_errStatus.Bit.OverPower = 0;
@@ -666,9 +666,9 @@ void ProcessSecTaskFlags ( void )
 		   	}
 		#endif 
 		
-			//¶ñĞÔ¸ºÔØÊ¹ÄÜ 11
+			//ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ 11
 		#if(MALIGNANT_LOAD_CHK_EANBLED==1)	
-			//Èç¹ûÖ®Ç°ÊÇ¹ıÔØ±£»¤¶Ï¿ª¼ÌµçÆ÷£¬1·ÖÖÓºó¿É±ÕºÏ¼ÌµçÆ÷ 11
+			//ï¿½ï¿½ï¿½Ö®Ç°ï¿½Ç¹ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½Óºï¿½É±ÕºÏ¼Ìµï¿½ï¿½ï¿½ 11
 			if(g_errStatus.Bit.RLoadHappened)
 			{
 				g_errStatus.Bit.RLoadHappened = 0;
@@ -685,13 +685,13 @@ void ProcessSecTaskFlags ( void )
         }
     }
     
-    //5·ÖÖÓÍ¨¶Ï 11
+    //5ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ 11
     if ( g_5minutesBalanceCnt > 0 )
     {
         g_5minutesBalanceCnt--;   
         if ( g_5minutesBalanceCnt == 0 )
         {       
-            //Ê£Óà½ğ¶îµ½ÁãºóÌøÕ¢£¬5·ÖÖÓºó±ÕºÏ 11
+            //Ê£ï¿½ï¿½ï¿½îµ½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¢ï¿½ï¿½5ï¿½ï¿½ï¿½Óºï¿½Õºï¿½ 11
             if ( g_relayFlag.Bit.BalanceZeroHappened )
             {                 
                 g_relayFlag.Bit.BalanceZero5MinFlg = 1;
@@ -699,19 +699,19 @@ void ProcessSecTaskFlags ( void )
         }
     }
 	
-	//ÈÕ¶³½á²Ù×÷ 11
+	//ï¿½Õ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
 #if (FREEZE_DAY_EANBLED==1)
 	if ( g_daySeconds >= 86400 )		//3600*24		
 	{
 		I2CRead ( EEPROM_ADDR, offsetof(EEPROM_DATA,LastDay1FreezeActive), 
 				&g_buf[4], 12, 1  );
-		//µ±Ç°ÓĞ¹¦×ÜµçÁ¿ 11
+		//ï¿½ï¿½Ç°ï¿½Ğ¹ï¿½ï¿½Üµï¿½ï¿½ï¿½ 11
 		tempL =  Hex32ToBCD( g_energy.Accumulate );
 		g_buf[0] = (uchar)(tempL&0xff);
 		g_buf[1] = (uchar)((tempL>>8)&0xff);
 		g_buf[2] = (uchar)((tempL>>16)&0xff);
 		g_buf[3] = (uchar)((tempL>>24)&0xff);
-		//´æ´¢×î½ü1´Î¹ºµç¼ÇÂ¼Êı¾İ 11    
+		//ï¿½æ´¢ï¿½ï¿½ï¿½1ï¿½Î¹ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ 11    
 	    EEPROM_NOWP();
 		I2CWrite ( EEPROM_ADDR, offsetof(EEPROM_DATA,LastDay1FreezeActive), 
 			    &g_buf[0], 16, 1  );
@@ -722,9 +722,9 @@ void ProcessSecTaskFlags ( void )
 	}
 #endif     
             
-    //ÓëÊ±¼äÏà¹Ø´¦Àí 11
+    //ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½ 11
 #ifdef RTC_8025T
-	//·ÖÖÓÊÂ¼ş 11
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ 11
 	if ( g_meterFlag.Bit.ZeroSecondFlag )
     {
 
@@ -747,12 +747,12 @@ void ProcessSecTaskFlags ( void )
 		{
 			if ( (g_date.year>=g_buf[5]) &&	
 					(g_date.month>=g_buf[6]) &&			
-					(g_date.day>=g_buf[7]) )		//Ò»¸ö½×ÌİÖÜÆÚÍê³É 11
+					(g_date.day>=g_buf[7]) )		//Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
 			{
 				g_meterFlag.Bit.LadderProcess = 1; 
  				g_energy.CurrentQ = 0;	
  				
- 				if ( (g_buf[0]>0) && (g_buf[0]<5) )		//Äê 11
+ 				if ( (g_buf[0]>0) && (g_buf[0]<5) )		//ï¿½ï¿½ 11
  				{
  					temp1 = (uchar)BCDToHex( &g_buf[0], 1 );
  					temp2 = (uchar)BCDToHex( &g_buf[5], 1 );
@@ -760,13 +760,13 @@ void ProcessSecTaskFlags ( void )
  					temp2 += temp1;
  					g_buf[5] = Hex8ToBCD( temp2 );
  				}
- 				else if ( (g_buf[1]>0) && (g_buf[1]<10) )	//ÔÂ 11
+ 				else if ( (g_buf[1]>0) && (g_buf[1]<10) )	//ï¿½ï¿½ 11
  				{
  					temp1 = (uchar)BCDToHex( &g_buf[1], 1 );
  					temp2 = (uchar)BCDToHex( &g_buf[6], 1 );
  					
  					temp2 += temp1;
- 					if ( temp2 > 12 )		//¿çÄê 11
+ 					if ( temp2 > 12 )		//ï¿½ï¿½ï¿½ï¿½ 11
  					{
  						temp2 -= 12;
  						g_buf[6] = Hex8ToBCD( temp2 );
@@ -784,7 +784,7 @@ void ProcessSecTaskFlags ( void )
  				{
  					g_buf[5] = 0x99;	
  				}
- 				//Ğ£ÑéºÍ 11
+ 				//Ğ£ï¿½ï¿½ï¿½ 11
 				g_buf[15] = GetSum ( &g_buf[0], 15 );
  				StoreToE2ROMAndBackup ( offsetof(EEPROM_DATA,YYMM),
  					 (uchar*)&g_buf[0],16 );	
@@ -798,7 +798,7 @@ void ProcessSecTaskFlags ( void )
 
 #endif	
 	
-    //·¢ÉúÔÂ¶ÈÊÂ¼ş 11
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Â¶ï¿½ï¿½Â¼ï¿½ 11
 	if( (g_date.day == 0x01) &&
 		(g_date.hour == 0x00) &&
 		(g_date.min == 0x00) &&
@@ -806,7 +806,7 @@ void ProcessSecTaskFlags ( void )
 	{		 			
  			
  		
- 		//ÀúÊ·µçÁ¿×ª´æ 11
+ 		//ï¿½ï¿½Ê·ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ 11
  		for ( i=0; i<11; i++ )
  		{
  			I2CRead ( EEPROM_ADDR, offsetof(EEPROM_DATA,Last11_A1)-4*i, 
@@ -824,9 +824,9 @@ void ProcessSecTaskFlags ( void )
 	    	(uchar*)&g_energy.Accumulate, 4, 1  );
 		EEPROM_WP();
 				 		
- 	//ĞèÁ¿Ê¹ÄÜ 11
+ 	//ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ 11
 	#ifdef DEMAND_ENABLE
-		//ÀúÊ·µçÁ¿×ª´æ 11
+		//ï¿½ï¿½Ê·ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ 11
  		for ( i=0; i<12; i++ )
  		{
  			I2CRead ( EEPROM_ADDR, offsetof(EEPROM_DATA,Last11Demand)-16*i, 
@@ -850,7 +850,7 @@ void ProcessSecTaskFlags ( void )
 	#endif
  	}				
     
-    //·¢ÉúÕûµãÊÂ¼ş 11
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ 11
 #if(FREEZE_HOUR_EANBLED==1)	
 	if( (g_date.min == 0x00) &&
 		(g_date.sec == 0x03) )	
@@ -877,7 +877,7 @@ void ProcessSecTaskFlags ( void )
     		&g_buf[1], 9, 1  );
 		EEPROM_WP();
 		
-		//±£´æÖ¸Õë 11
+		//ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ 11
 		g_buf[0]++;
 		if ( g_buf[0] > 100 )	
 			g_buf[0] = 0;
@@ -891,7 +891,7 @@ void ProcessSecTaskFlags ( void )
 #endif    
 
 #ifdef PRE_PAID_ENABLE   
-    //µç¼ÛÅĞ¶Ï 11
+    //ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ 11
     if ( (g_price > MAX_PRICE) || 
     	(g_price < MIN_PRICE) )
     {
@@ -902,7 +902,7 @@ void ProcessSecTaskFlags ( void )
 	
 
 	
-	//¶ÏÏàÊÂ¼ş¼ÇÂ¼´¦Àí 11
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ 11
 #if((LOSS_PHASE_EANBLED==1) && (SINGLE_OR_THREE_METER==3))    
 	for ( i=0; i<3; i++ )
 	{
@@ -913,7 +913,7 @@ void ProcessSecTaskFlags ( void )
 			if ( s_lossPhaseCnt[i] > 60 )
 			{
 				
-				//ÀúÊ·¼ÇÂ¼×ª´æ 11
+				//ï¿½ï¿½Ê·ï¿½ï¿½Â¼×ªï¿½ï¿½ 11
 		 		for ( j=0; j<9; j++ )
 		 		{
 		 			I2CRead ( EEPROM_ADDR, offsetof(EEPROM_DATA,PhaseALossLast9Record)+146*i-j*14, 
@@ -926,7 +926,7 @@ void ProcessSecTaskFlags ( void )
 					
 					FeedWatchdog ( );
 		 		}
-		 		//¼ÇÂ¼·¢ÉúÊ±¿ÌºÍµçÁ¿Êı¾İ 11
+		 		//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ÌºÍµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
 		 		g_buf[0] = g_date.year;
 				g_buf[1] = g_date.month;
 				g_buf[2] = g_date.day;
@@ -953,7 +953,7 @@ void ProcessSecTaskFlags ( void )
 		{
 			if ( s_lossPhaseCnt[i] > 60 )
 			{
-				//ÀÛ¼Æ¶ÏÏàÊ±¼äºÍ¼ÇÂ¼±¾´Î¶ÏÏàÊÂ¼ş 11
+				//ï¿½Û¼Æ¶ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Í¼ï¿½Â¼ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ 11
 				I2CRead ( EEPROM_ADDR, offsetof(EEPROM_DATA,PhaseALossCnt)+146*i, 
 			 			&g_buf[0], 6, 1  ) ;
 			  	tempL = BCDToHex( &g_buf[0], 3 );
@@ -982,13 +982,13 @@ void ProcessSecTaskFlags ( void )
 
 #endif
 
-	//¸ºÔØÔ½ÏŞ 11
+	//ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ 11
 #if(OVER_POWER_EANBLED==1)	
-	#if(SINGLE_OR_THREE_METER==3)		//ÈıÏà 11
+	#if(SINGLE_OR_THREE_METER==3)		//ï¿½ï¿½ï¿½ï¿½ 11
 		if ( (g_uip[0].PRms>(g_para.LimitPower*10)) ||
 				(g_uip[1].PRms>(g_para.LimitPower*10)) ||
 				(g_uip[2].PRms>(g_para.LimitPower*10)) )		
-	#else		//µ¥Ïà 11
+	#else		//ï¿½ï¿½ï¿½ï¿½ 11
 		tempL = BCDToHex( (uchar*)&g_uip.PRms, 4 );
 		if ( tempL>(g_para.LimitPower*10) &&
 				(g_para.LimitPower>0) )
@@ -999,7 +999,7 @@ void ProcessSecTaskFlags ( void )
 				s_overPowerCnt++;
 				if ( (s_overPowerCnt > 60) )	
 				{
-					//ÀúÊ·¼ÇÂ¼×ª´æ 11
+					//ï¿½ï¿½Ê·ï¿½ï¿½Â¼×ªï¿½ï¿½ 11
 			 		for ( i=0; i<9; i++ )
 			 		{
 			 			I2CRead ( EEPROM_ADDR, offsetof(EEPROM_DATA,OverPowerLast9)-i*20, 
@@ -1012,7 +1012,7 @@ void ProcessSecTaskFlags ( void )
 						
 						FeedWatchdog ( );
 			 		}
-			 		//¼ÇÂ¼·¢ÉúÊ±¿ÌºÍµçÁ¿Êı¾İ 11
+			 		//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ÌºÍµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
 			 		g_buf[0] = g_date.year;
 					g_buf[1] = g_date.month;
 					g_buf[2] = g_date.day;
@@ -1049,7 +1049,7 @@ void ProcessSecTaskFlags ( void )
 		{
 			if ( s_overPowerCnt > 60 )
 			{
-				//ÀÛ¼Æ¶ÏÏàÊ±¼äºÍ¼ÇÂ¼±¾´Î¶ÏÏàÊÂ¼ş 11
+				//ï¿½Û¼Æ¶ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Í¼ï¿½Â¼ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ 11
 				I2CRead ( EEPROM_ADDR, offsetof(EEPROM_DATA,OverPowerCnt), 
 			 			&g_buf[0], 26, 1  ) ;
 			  	tempL = BCDToHex( &g_buf[0], 3 );
@@ -1073,7 +1073,7 @@ void ProcessSecTaskFlags ( void )
 				g_buf[16] = g_date.min;
 				g_buf[17] = g_date.sec;
 				
-				//×ÜµçÁ¿ÔöÁ¿ 11
+				//ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
 				tempL = BCDToHex( &g_buf[18], 4 );
 				tempL = g_energy.PosAccumulate - tempL;
 				tempL = Hex32ToBCD( tempL );				
@@ -1100,12 +1100,12 @@ void ProcessSecTaskFlags ( void )
 		}
 #endif
 
-//¶ñĞÔ¸ºÔØÊ¹ÄÜ 11
+//ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ 11
 #if(MALIGNANT_LOAD_CHK_EANBLED==1) 
-	#if(SINGLE_OR_THREE_METER==1)		//µ¥Ïà 11
+	#if(SINGLE_OR_THREE_METER==1)		//ï¿½ï¿½ï¿½ï¿½ 11
 	{
 		if ( (g_buyPara.FactorLimit<1000) &&
-				(g_buyPara.FactorLimit>500) &&		//0.500 3Î»Ğ¡Êı 11
+				(g_buyPara.FactorLimit>500) &&		//0.500 3Î»Ğ¡ï¿½ï¿½ 11
 				(g_buyPara.FactorPower>0) &&
 				(g_meterFlag.Bit.MaglentFlag==1) ) 			    
 		{
@@ -1116,13 +1116,13 @@ void ProcessSecTaskFlags ( void )
     		    lastCnt = 0;
     		    for ( i=1; i<8; i++ )
     		    {								   			
-        			//ÓĞ¹¦¹¦ÂÊÅĞ¶Ï ÒÔ100WÎªÅĞ¶Ï»ù×¼ 
+        			//ï¿½Ğ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ ï¿½ï¿½100WÎªï¿½Ğ¶Ï»ï¿½×¼ 
         			if ( g_curRLoad[i].PRms > 
         					(g_curRLoad[0].PRms+g_buyPara.FactorPower) )
         			{
     			        tempL1 = g_curRLoad[i].PRms - g_curRLoad[0].PRms;
     			        
-    			        //ÏÈÅĞ¶ÏÔö¼ÓµÄÓĞ¹¦¹¦ÂÊ´óĞ¡ 11
+    			        //ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½Ğ¹ï¿½ï¿½ï¿½ï¿½Ê´ï¿½Ğ¡ 11
     			        if ( tempL1 >= (g_buyPara.FactorPower) )
     			        {    			        
         			        if ( g_curRLoad[i].SRms > g_curRLoad[0].SRms )
@@ -1136,12 +1136,12 @@ void ProcessSecTaskFlags ( void )
         			        
         			        if ( tempL == 0 )
         			        {
-        			        	//Ôö¼Ó¹¦ÂÊµÄ¹¦ÂÊÒòÊı 11
+        			        	//ï¿½ï¿½ï¿½Ó¹ï¿½ï¿½ÊµÄ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
         			        	tempL = 1000;	
         			        }
         			        else
         			        {
-        			        	//Ôö¼Ó¹¦ÂÊµÄ¹¦ÂÊÒòÊı 11
+        			        	//ï¿½ï¿½ï¿½Ó¹ï¿½ï¿½ÊµÄ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
         			        	tempL = (tempL1*1000)/tempL; 
         			        
         			        	if ( tempL > 1000 )
@@ -1171,9 +1171,9 @@ void ProcessSecTaskFlags ( void )
 	#endif
 #endif
 
-//¸ºÔØÌøÕ¢Ê¹ÄÜ 11
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¢Ê¹ï¿½ï¿½ 11
 #if(OVER_POWER_RELAY_OFF_EANBLED==1) 
-	//ÏŞµç¹¦ÂÊÅĞ¶Ï
+	//ï¿½Şµç¹¦ï¿½ï¿½ï¿½Ğ¶ï¿½
 	if ( g_para.LimitPower != 0 )
 	{
 	#if(SINGLE_OR_THREE_METER==1)
@@ -1250,7 +1250,7 @@ __interrupt void ISRForAD ( void )
 			        g_adSampleCnt = AD_SAMPLE_5MIN;
 			        g_errStatus.Bit.OverVoltage = 1; 
 			        
-			        //?Â·?Â¤???1???Â·?â€??|?â‚??-    
+			        //?Â·?Â¤???1???Â·?ï¿½??|?ï¿½??-    
 	                g_BeepDelay = BEEP_DELAY_2S;
 	                g_BeepCnt = BEEP_DELAY_5MIN;   			        
 			    }		
@@ -1327,8 +1327,8 @@ void InitGlobalVariable ( void )
     
     g_errStatus.Byte = 0;
     FeedWatchdog  (  );	
-    //´ÓEEPROM»ñÈ¡Êı¾İ 11
-	//µØÖ·Ïà¹ØĞÅÏ¢ 11
+    //ï¿½ï¿½EEPROMï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ 11
+	//ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 11
     if ( ReloadFromE2ROMAndBackup ( offsetof(EEPROM_DATA,Zone), 
 				(uchar*)&g_addr.Zone,CHECK_ADDMOD,Meter_Addr_Len ) != 0 )
 	{
@@ -1344,7 +1344,7 @@ void InitGlobalVariable ( void )
 	
 	
 	FeedWatchdog  (  );		
-	//¹ºµçÏà¹Ø²ÎÊıĞÅÏ¢  11
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢  11
 	if ( ReloadFromE2ROMAndBackup ( offsetof(EEPROM_DATA,BuyCount), 
 				(uchar*)&g_buyPara.BuyCount,CHECK_ADDMOD,Meter_Buy_PARA_Len ) != 0 )
 	{
@@ -1356,7 +1356,7 @@ void InitGlobalVariable ( void )
 	}
 	
 	FeedWatchdog  (  );	
-	//²ÎÊıĞÅÏ¢ 11
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 11
 	if ( ReloadFromE2ROMAndBackup ( offsetof(EEPROM_DATA,LimitPower), 
 				(uchar*)&g_para.LimitPower,CHECK_ADDMOD,Meter_Para_Len ) != 0 )
 	{
@@ -1369,7 +1369,7 @@ void InitGlobalVariable ( void )
 		g_relayFlag.Bit.BalanceZero5MinFlg = 1;	
 	if ( g_relayFlag.Bit.RelayAlarmOn )
 		g_5minutesCnt = 5;
-	//×´Ì¬×Ö3¸³Öµ 11
+	//×´Ì¬ï¿½ï¿½3ï¿½ï¿½Öµ 11
 	g_meterStatus3.Byte = 0;
 	if ( g_relayFlag.Bit.RelayOn == 0)
 	{
@@ -1380,13 +1380,13 @@ void InitGlobalVariable ( void )
     	ALARM_ON();  	
 	}
 		
-	if ( (g_para.MeterTpye&BIT0) == BIT0 )		//±£µçÄ£Ê½ 11
+	if ( (g_para.MeterTpye&BIT0) == BIT0 )		//ï¿½ï¿½ï¿½ï¿½Ä£Ê½ 11
 		g_meterStatus3.Bit.KeepRelay = 1; 
-	if ( (g_para.MeterTpye&BIT1) == BIT1 )		//Ô¶³ÌÀ­Õ¢ 11
+	if ( (g_para.MeterTpye&BIT1) == BIT1 )		//Ô¶ï¿½ï¿½ï¿½ï¿½Õ¢ 11
 		g_meterStatus3.Bit.RelayCmdStatus = 1;	
 			
 	FeedWatchdog  (  );	
-	//»ñÈ¡ÓĞ¹¦µçÄÜÊı¾İÏà¹Ø  11
+	//ï¿½ï¿½È¡ï¿½Ğ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  11
 	I2CRead ( EEPROM_ADDR,offsetof(EEPROM_DATA,Accumulate_Low), 
 		(uchar*)&temp_energy.Accumulate,sizeof(Meter_EQuan), 1 );
 	ReloadFromE2ROMAndBackup ( offsetof(EEPROM_DATA,Accumulate), 
@@ -1402,7 +1402,7 @@ void InitGlobalVariable ( void )
 	}
 	else
 	{
-		//Êı¾İ±È¶Ô 11
+		//ï¿½ï¿½ï¿½İ±È¶ï¿½ 11
 		if ( (temp_energy.Accumulate <= g_energy.Accumulate) )
 		{
 			if ( ReloadFromE2ROMAndBackup ( offsetof(EEPROM_DATA,Accumulate), 
@@ -1419,7 +1419,7 @@ void InitGlobalVariable ( void )
 
 #ifdef INACITVE_POWER_ENABLE	
 	FeedWatchdog  (  );	
-	//»ñÈ¡ÎŞ¹¦µçÄÜÊı¾İÏà¹Ø  11
+	//ï¿½ï¿½È¡ï¿½Ş¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  11
 	I2CRead ( EEPROM_ADDR,offsetof(EEPROM_DATA,InactiveQuan_Low), 
 		(uchar*)&temp_Inactive.InactiveQuan,Meter_InactiveQuan_Len, 1 );
 	ReloadFromE2ROMAndBackup ( offsetof(EEPROM_DATA,InactiveQuan), 
@@ -1435,7 +1435,7 @@ void InitGlobalVariable ( void )
 	}
 	else
 	{
-		//Êı¾İ±È¶Ô 11
+		//ï¿½ï¿½ï¿½İ±È¶ï¿½ 11
 		if ( temp_Inactive.InactiveQuan < g_Inactivenergy.InactiveQuan)
 		{
 			if ( ReloadFromE2ROMAndBackup ( offsetof(EEPROM_DATA,InactiveQuan), 
@@ -1451,7 +1451,7 @@ void InitGlobalVariable ( void )
 	}
 #endif
 	
-	//²¨ÌØÂÊÏà¹Ø²ÎÊı 11
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½ 11
 	if ( ReloadFromE2ROMAndBackup ( offsetof(EEPROM_DATA,baudrate), 
 				(uchar*)&g_baudRate.baudrate,CHECK_ADDMOD,4 ) != 0 )
 	{		
@@ -1466,13 +1466,13 @@ void InitGlobalVariable ( void )
 	ProcessPrice( );
 #endif	
 
-//¸ºÔØÌøÕ¢Ê¹ÄÜ 11
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¢Ê¹ï¿½ï¿½ 11
 #if(OVER_POWER_RELAY_OFF_EANBLED==1)
     g_OverPowerFlagCnt = 0;
 #endif
 
 	
-//ĞèÁ¿Ê¹ÄÜ 11
+//ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ 11
 #ifdef DEMAND_ENABLE
 	I2CRead ( EEPROM_ADDR,offsetof(EEPROM_DATA,DemandPara), 
 		(uchar*)&g_demand.PosActive,Meter_Demand_Len, 1 );
@@ -1531,7 +1531,7 @@ void InitGlobalVariable ( void )
     	FeedWatchdog ( );
     	if ( cnt > 12 )
     		cnt = 12; 
-    	//?â€??|?â€??ï¿??Î¼?Â§????????????11
+    	//?ï¿½??|?ï¿½??ï¿½??Î¼?Â§????????????11
     	for ( j=0; j<cnt; j++ )
     	{
      		for ( i=0; i<11; i++ )
@@ -1554,9 +1554,9 @@ void InitGlobalVariable ( void )
     		g_energy.CurrentQ = 0;
     		
     		//
-    		//ĞèÁ¿Ê¹ÄÜ 11
+    		//ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ 11
 		#ifdef DEMAND_ENABLE
-			//ÀúÊ·µçÁ¿×ª´æ 11
+			//ï¿½ï¿½Ê·ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ 11
 	 		for ( i=0; i<12; i++ )
 	 		{
 	 			I2CRead ( EEPROM_ADDR, offsetof(EEPROM_DATA,Last11Demand)-16*i, 
@@ -1585,7 +1585,7 @@ void InitGlobalVariable ( void )
     	
     }
       		
-    //¼ÇÂ¼µôµç  11
+    //ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½  11
 	for ( i=0; i<9; i++ )
 	{
 		I2CRead ( EEPROM_ADDR, offsetof(EEPROM_DATA,Last9DropPower)-12*i, 
@@ -1608,10 +1608,10 @@ void InitGlobalVariable ( void )
 	g_buf[0] = (uchar)tempL&0xff;
 	g_buf[1] = (uchar)(tempL>>8)&0xff;
 	g_buf[2] = (uchar)(tempL>>16)&0xff;	
-	//µôµçÊ±¼ä 11
+	//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ 11
 	I2CRead ( EEPROM_ADDR, offsetof(EEPROM_DATA,DropDateTime),
 			(uchar*)&g_buf[3], 6, 1  );
-    //µôµç½áÊøÊ±¼ä 11
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ 11
     g_buf[9] = g_date.year;
 	g_buf[10] = g_date.month;
 	g_buf[11] = g_date.day;
@@ -1651,6 +1651,9 @@ void InitGlobalVariable ( void )
 #ifdef TARIFF_ENABLE	
 	g_tariffOffset = 0;
 #endif
+
+	//ä¸Šç”µé»˜è®¤ä¸è¿›è¡ŒæŒ‰é”®ä¿ç”µ 11
+	
 
 	return;
 }
@@ -2010,7 +2013,7 @@ uchar StoreToE2ROMAndBackup ( uint16 suba, uchar*buf,uchar len )
 	    }
 	    
 
-		//±¸·İÇøÊı¾İ±¸·İ 11
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ±ï¿½ï¿½ï¿½ 11
 		if ( suba < (offsetof(EEPROM_DATA,PASSWORD)+16) )
 			tempsuba = suba + offsetof(EEPROM_DATA,PSTART1_B)-64;
 	#ifdef TARIFF_ENABLE 
@@ -2025,7 +2028,7 @@ uchar StoreToE2ROMAndBackup ( uint16 suba, uchar*buf,uchar len )
 	#endif							
 		else
 		{
-			//ÎŞ±¸·İÇøÊı¾İ 11
+			//ï¿½Ş±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
 			return 0;	
 		}	
 			
@@ -2140,7 +2143,7 @@ uchar ReloadFromE2ROMAndBackup ( uint16 suba, uchar*buf,uchar flag,uchar len )
     inflag = 0;	    	    
     I2CRead ( EEPROM_ADDR, suba, &g_buf[0], len, 1  ) ;    
     {
-    	if ( flag == 0 )		//¼ÆÁ¿ÏµÊıĞ£Ñé 11
+    	if ( flag == 0 )		//ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½Ğ£ï¿½ï¿½ 11
     	{
     	#if(METER_CHIP_MODEL==0x2208)
     	 	for ( i=0;i<8;i++)
@@ -2155,7 +2158,7 @@ uchar ReloadFromE2ROMAndBackup ( uint16 suba, uchar*buf,uchar flag,uchar len )
     	 	}
     	#endif    	 	
     	}
-    	else if ( flag == 1 )		//?â‚??????â€????ï¿??â€????o?? 11
+    	else if ( flag == 1 )		//?ï¿½??????ï¿½????ï¿½??ï¿½????o?? 11
     	{
     		checksum = GetSum ( g_buf, len-1 ); 	
     		if ( g_buf[len-1] != checksum )
@@ -2173,7 +2176,7 @@ uchar ReloadFromE2ROMAndBackup ( uint16 suba, uchar*buf,uchar flag,uchar len )
     }
     
     inflag = 0; 
-    //±¸·İÇøÊı¾İµØÖ· 11
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İµï¿½Ö· 11
 	if ( suba < (offsetof(EEPROM_DATA,PASSWORD)+16) )
 		tempsuba = suba + offsetof(EEPROM_DATA,PSTART1_B);
 #ifdef TARIFF_ENABLE 
@@ -2190,13 +2193,13 @@ uchar ReloadFromE2ROMAndBackup ( uint16 suba, uchar*buf,uchar flag,uchar len )
 	
 	else
 	{
-		//ÎŞ±¸·İÇøÊı¾İ 11
+		//ï¿½Ş±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
 		return 1;	
 	}	
 		  	    	    	    
    	I2CRead ( EEPROM_ADDR, tempsuba, g_buf, len, 1  );
     {
-    	if ( flag == 0 )		//¼ÆÁ¿ÏµÊıĞ£Ñé 11
+    	if ( flag == 0 )		//ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½Ğ£ï¿½ï¿½ 11
     	{
     	#if(METER_CHIP_MODEL==0x2208)
     	 	for ( i=0;i<8;i++)
@@ -2211,7 +2214,7 @@ uchar ReloadFromE2ROMAndBackup ( uint16 suba, uchar*buf,uchar flag,uchar len )
     	 	}
     	#endif     	 	
     	}
-    	else if ( flag == 1 )		//?â‚??????â€????ï¿??â€????o?? 11
+    	else if ( flag == 1 )		//?ï¿½??????ï¿½????ï¿½??ï¿½????o?? 11
     	{
     		checksum = GetSum ( g_buf, len-1 ); 	
     		if ( g_buf[len-1] != checksum )
@@ -2248,8 +2251,8 @@ uchar ReloadFromE2ROMAndBackup ( uint16 suba, uchar*buf,uchar flag,uchar len )
 */
 void ProcessRelayStatus ( void )
 {          
-	//¼ÌµçÆ÷¿ØÖÆ 11
-	if ( (g_para.MeterTpye&BIT0) == BIT0 )		//±£µçÄ£Ê½ 11
+	//ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
+	if ( (g_para.MeterTpye&BIT0) == BIT0 )		//ï¿½ï¿½ï¿½ï¿½Ä£Ê½ 11
 	{
 	    if ( g_relayChkDly == 0 )
 	    {
@@ -2260,12 +2263,12 @@ void ProcessRelayStatus ( void )
         }	
         
 	}
-	//´¦ÓÚÃüÁîÀ­Õ¢×´Ì¬ 11
-	else if ( (g_para.MeterTpye&BIT1) == BIT1 )		//Ô¶³ÌÀ­Õ¢ 11
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¢×´Ì¬ 11
+	else if ( (g_para.MeterTpye&BIT1) == BIT1 )		//Ô¶ï¿½ï¿½ï¿½ï¿½Õ¢ 11
 	{
 		if ( g_relayChkDly == 0 )
 	    {
-    	    if ( g_relayFlag.Bit.RelayOn==1 )  //Èç¹ûÊÇºÏÕ¢×´Ì¬ĞèÒªÌøÕ¢ 11
+    	    if ( g_relayFlag.Bit.RelayOn==1 )  //ï¿½ï¿½ï¿½ï¿½Çºï¿½Õ¢×´Ì¬ï¿½ï¿½Òªï¿½ï¿½Õ¢ 11
                 g_relayFlag.Bit.RelayNeedToOperate = 1;
             else
                 g_relayFlag.Bit.RelayNeedToOperate = 0;	
@@ -2273,12 +2276,12 @@ void ProcessRelayStatus ( void )
 	}
 
 #if(MALIGNANT_LOAD_CHK_EANBLED==1)		
-	//¶ñĞÔ¸ºÔØÌøÕ¢ 11
+	//ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½ï¿½Õ¢ 11
 	else if ( g_errStatus.Bit.RLoadHappened==1 )
 	{
 		if ( g_relayChkDly == 0 )
 	    {
-    	    if ( g_relayFlag.Bit.RelayOn==1 )  //Èç¹ûÊÇºÏÕ¢×´Ì¬ĞèÒªÌøÕ¢ 11
+    	    if ( g_relayFlag.Bit.RelayOn==1 )  //ï¿½ï¿½ï¿½ï¿½Çºï¿½Õ¢×´Ì¬ï¿½ï¿½Òªï¿½ï¿½Õ¢ 11
                 g_relayFlag.Bit.RelayNeedToOperate = 1;
             else
                 g_relayFlag.Bit.RelayNeedToOperate = 0;	
@@ -2287,12 +2290,12 @@ void ProcessRelayStatus ( void )
 #endif
 
 #if(OVER_POWER_RELAY_OFF_EANBLED==1)   	
-   	//Èç¹ûÖ®Ç°ÊÇ¹ıÔØ±£»¤¶Ï¿ª¼ÌµçÆ÷£¬¶Ï¿ª¼ÌµçÆ÷ 11
+   	//ï¿½ï¿½ï¿½Ö®Ç°ï¿½Ç¹ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½Ìµï¿½ï¿½ï¿½ 11
    	else if ( g_errStatus.Bit.OverPower )
    	{
    		if ( g_relayChkDly == 0 )
 	    {
-    	    if ( g_relayFlag.Bit.RelayOn==1 )  //Èç¹ûÊÇºÏÕ¢×´Ì¬ĞèÒªÌøÕ¢ 11
+    	    if ( g_relayFlag.Bit.RelayOn==1 )  //ï¿½ï¿½ï¿½ï¿½Çºï¿½Õ¢×´Ì¬ï¿½ï¿½Òªï¿½ï¿½Õ¢ 11
                 g_relayFlag.Bit.RelayNeedToOperate = 1;
             else
                 g_relayFlag.Bit.RelayNeedToOperate = 0;	
@@ -2300,10 +2303,22 @@ void ProcessRelayStatus ( void )
    	}
 #endif
 	
+	//å¢åŠ æŒ‰é”®ä¿ç”µåŠŸèƒ½ 11
+	else if ( g_meterStatus3.Bit.BtnKeepRelay )
+	{
+		if ( g_relayChkDly == 0 )
+	    {
+    	    if ( g_relayFlag.Bit.RelayOn==0 )  
+                g_relayFlag.Bit.RelayNeedToOperate = 1;
+            else
+                g_relayFlag.Bit.RelayNeedToOperate = 0;	
+        }	
+	}
+
 #ifdef PRE_PAID_ENABLE
 	else  // 11
 	{
-		//±¾µØÄ£Ê½ ½øĞĞÊ£Óà½ğ¶îÅĞ¶Ï 11
+		//ï¿½ï¿½ï¿½ï¿½Ä£Ê½ ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ 11
 		//added by Roger 2015/07/24
 		if ( g_buyPara.Status == BACK_MONEY_STATUS )
 		{
@@ -2314,7 +2329,7 @@ void ProcessRelayStatus ( void )
 	       	
 	       	g_meterStatus3.Bit.StatusMeter = 1; 
 		}		
-		//¸ù¾İÊ£ÓàµçÁ¿´¦Àí¼ÌµçÆ÷  11
+		//ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½  11
 		else if ( (g_relayFlag.Bit.RelayInTest == 0) &&
 		    (g_relayFlag.Bit.RelayAlarmOn==0) )
 	    {
@@ -2329,7 +2344,7 @@ void ProcessRelayStatus ( void )
 	        }
 	        else
 	        {
-	            //Ã»ÓĞ·¢Éú¹ıÊ£Óà½ğ¶îÎª0 11 11
+	            //Ã»ï¿½Ğ·ï¿½ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½Îª0 11 11
 	            if ( g_relayFlag.Bit.BalanceZeroHappened == 0 )
 	            {
 	                g_5minutesBalanceCnt = FIVE_MININUTES_CNT; 
@@ -2339,21 +2354,21 @@ void ProcessRelayStatus ( void )
     	            
     	            g_meterStatus3.Bit.NoMoney = 1;  
 	            }
-	            else //·¢Éú¹ı 11
+	            else //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 11
 	            {    	            
-    	            //ÉŞÇ·ÏŞ¶î´óÓÚ0£¬ÔÊĞíÉŞÇ· 11
+    	            //ï¿½ï¿½Ç·ï¿½Ş¶ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç· 11
     	            if ( g_para.CreditLimit > 0 )
     	            {
     	            	if ( g_relayFlag.Bit.BalanceZero5MinFlg==1 )
     	            	{
-	    	                //¹ıÁã½ğ¶î´óÓÚÏŞ¶îºóÌøÕ¢ 11
+	    	                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş¶ï¿½ï¿½ï¿½ï¿½Õ¢ 11
 	    	           	#if(NEW_PROTOCOL_2018==1)
 	    	           		if ( g_energy.Overdraft > (g_para.CreditLimit*100) )
 	    	           	#else
 	    	           		if ( g_energy.Overdraft > (g_para.CreditLimit*10000) )
 	    	           	#endif	                
 	    	                {
-	    	                    //ÌøÕ¢ 11
+	    	                    //ï¿½ï¿½Õ¢ 11
 	    	                    if ( g_relayFlag.Bit.RelayOn )  
 	            	                g_relayFlag.Bit.RelayNeedToOperate = 1;
 	            	            else
@@ -2363,7 +2378,7 @@ void ProcessRelayStatus ( void )
 	    	                } 
 	    	                else
 	    	                {
-	    	                	//ºÏÕ¢ 11
+	    	                	//ï¿½ï¿½Õ¢ 11
 	    	                	if ( g_relayFlag.Bit.RelayOn == 0 )  
 	            	                g_relayFlag.Bit.RelayNeedToOperate = 1;
 	            	            else
@@ -2384,7 +2399,7 @@ void ProcessRelayStatus ( void )
 	    }
 	    
   
-	    //±¨¾¯µÆ´¦Àí  11      
+	    //ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½  11      
 	    //if ( g_2208ErrCnt < 5 )
 	    {
 		    if ( (g_energy.Balance==0)  
@@ -2401,7 +2416,7 @@ void ProcessRelayStatus ( void )
 		    else
 		    {
 			    ALARM_OFF();		
-		    	//±¨¾¯½ğ¶îÅĞ¶Ï 11
+		    	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ 11
 			    if ( g_buyPara.Alarm1 > 0 )	
 			    {
 			    	if ( g_energy.Balance <= (((uint32)g_buyPara.Alarm1)*10000) )
@@ -2409,7 +2424,7 @@ void ProcessRelayStatus ( void )
 			    		ALARM_ON();			
 			    	}	
 				} 	
-				//±¨¾¯½ğ¶î2ÅĞ¶Ï 11
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½Ğ¶ï¿½ 11
 		    	if ( g_buyPara.Alarm2 > 0 )	
 			    {	    		    		    		
 			    	if ( g_relayFlag.Bit.RelayAlarmHappened==0 )
@@ -2427,7 +2442,7 @@ void ProcessRelayStatus ( void )
 				            
 				            g_meterStatus3.Bit.Alarm2Status = 1;  
 				            
-				            //ÒòÓÃÌ¨Ìå×ß×Ö£¬À­Õ¢ºóµôµçÌ«¿ì ¶ªÊı¾İ 2016/01/06  11
+				            //ï¿½ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½Õ¢ï¿½ï¿½ï¿½ï¿½ï¿½Ì«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2016/01/06  11
 				            g_energy.Checksum = GetSum ( (uchar*)&g_energy.Accumulate, Meter_EQuan_Len-1 );     
 		        			StoreToE2ROMAndBackup ( offsetof(EEPROM_DATA,Accumulate),
 								(uchar*)&g_energy.Accumulate,Meter_EQuan_Len );	    
@@ -2444,7 +2459,7 @@ void ProcessRelayStatus ( void )
 	}	
 	
 #else		
-	//·ÇÔ¤¸¶·Ñ±í Õı³£Ó¦¸ÃÊÇºÏÕ¢ 11
+	//ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½Ñ±ï¿½ ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½Çºï¿½Õ¢ 11
 	else
 	{
 		if ( g_relayChkDly == 0 )
@@ -2495,7 +2510,7 @@ void ProcessRelay ( void )
         g_relayFlag.Bit.RelayOn = 0; 
     
     #ifdef RELAY_OUT_CONTROL	    
-    	if ( (g_para.MeterTpye&BIT5) == BIT5 )		//µçÆ½Ê½ 11
+    	if ( (g_para.MeterTpye&BIT5) == BIT5 )		//ï¿½ï¿½Æ½Ê½ 11
     	{
     		g_relayCnt = 0;			
     	}
@@ -2533,7 +2548,7 @@ void ProcessRelay ( void )
     	g_meterStatus3.Bit.RelayStatus = 0;  
     }
     
-    //·¢Éú¸Ä±äĞè±£´æ 11
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½è±£ï¿½ï¿½ 11
     g_relayFlag.Bit.StatusToSave = 1;
         		
     return;   
@@ -2587,10 +2602,10 @@ uchar CompareEXLVI ( void )
 	{
 		if ( LVIF )
 		{
-			for(i=0;i<200;i++);		//???Â§?1???Î¼?â€??Î¼?Â§?â€??2?????????????2?ï¿?10?â€??? 11			
+			for(i=0;i<200;i++);		//???Â§?1???Î¼?ï¿½??Î¼?Â§?ï¿½??2?????????????2?ï¿½?10?ï¿½??? 11			
 		}
 		else
-			break;					//?????Î¼?â€??Î¼?Â§?â€??2?Â·?Î¼???? 11
+			break;					//?????Î¼?ï¿½??Î¼?Â§?ï¿½??2?Â·?Î¼???? 11
 	}
     //EI();
 	if(cmp_num==0)
@@ -2775,7 +2790,7 @@ void GetTime ( void )
 *****************************************************************************************
 * fuction name: SetTime
 *
-* Description : ?â€??Â¨?â€??????Â±???Â¤ 
+* Description : ?ï¿½??Â¨?ï¿½??????Â±???Â¤ 
 *
 * Arguments   : uchar *buf
 *		

@@ -164,6 +164,8 @@ HEAD_MACRO_MAIN LCD_DISP_FLAG g_lcdFlag;
 
 HEAD_MACRO_MAIN unsigned char g_btnFreezeLCD;	//单次按键显示保留时间 11
 
+//added by Rogor 2020/09/23 增加按键保电功能 掉电不保存 11
+//HEAD_MACRO_MAIN uchar g_btnKeepRelayOnFlag; //1
 
 #if(CALI_CHANGE_CARD_ENABLED==1)	
 	HEAD_MACRO_MAIN unsigned char g_RunCoef;
